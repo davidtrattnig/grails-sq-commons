@@ -3,14 +3,14 @@ package at.subsquare.commons
 
 class ConfigProperty {
 
-	String code
+	String name
 	String value
 	
 	Date dateCreated
 	Date lastUpdated
 	
     static constraints = {
-		code unique: true, blank: false
+		name unique: true, blank: false
 		value nullable: true
     }
 
@@ -18,6 +18,6 @@ class ConfigProperty {
 	 * Default toString method
 	 */
 	public String toString() {
-		"<${code}>:<${value}>"
+		"<${name}>:<${value}>"
 	}
 }

@@ -12,7 +12,7 @@ class ConfigPropertyTests {
 
     void testCreateConfigProperty() {
 		
-		def cp = new ConfigProperty(code:"FOO", value:"bar")
+		def cp = new ConfigProperty(name:"FOO", value:"bar")
 		cp.validate()
 		println cp.errors
 		assert cp.validate()
@@ -20,7 +20,7 @@ class ConfigPropertyTests {
 
     void testConfigPropertyToString() {
 		
-		def cp = new ConfigProperty(code:"aa", value:"123")
+		def cp = new ConfigProperty(name:"aa", value:"123")
 		cp.validate()
 		println cp.errors
 		assert cp.save(flush:true)
