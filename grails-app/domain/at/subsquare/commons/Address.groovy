@@ -8,14 +8,17 @@ class Address {
 	String country
 	
     static constraints = {
-		street blank: false
-		zipCode nullable: true, blank: true, size: 1..15
-		city blank: false
+		street nullable: true
+		zipCode nullable: true, size: 1..15
+		city nullable: true
 		country blank: false
     }
-
+	
 	public String toString() {
-		def zip = zipCode ? " $zipCode" : ""
-		"$street,$zip $city, $country"
+		
+		def address = street.trim() ? "$street, " : ""
+		address += zipCode ? "$zipCode " : ""
+		address += city ? " $city, " : ""
+		address += country
 	}
 }

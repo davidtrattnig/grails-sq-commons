@@ -4,10 +4,9 @@
 <g:hiddenField name="${prefix}.version" value="${addressInstance?.version}" />
 
 
-<div class="fieldcontain ${hasErrors(bean: address, field: '${prefix}.street', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: address, field: '${prefix}.street', 'error')}">
 	<label for="${prefix}.street">
 		<g:message code="${prefix}.street.label" default="Street" />
-		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="${prefix}.street" name="${prefix}Street"  required="" value="${addressInstance?.street}"/>
 </div>
@@ -20,10 +19,9 @@
 	<g:textField name="${prefix}.zipCode" id="${prefix}ZipCode"  maxlength="15" value="${addressInstance?.zipCode}"/>
 </div>
 				
-<div class="fieldcontain ${hasErrors(bean: addressInstance, field: 'address.city', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: addressInstance, field: 'address.city', 'error')}">
 	<label for="${prefix}.city">
 		<g:message code="${prefix}.city.label" default="City" />
-		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="${prefix}.city" id="${prefix}City"  required="" value="${addressInstance?.city}"/>
 </div>
@@ -35,7 +33,7 @@
 	</label>	
 	<g:if test="${countryList}">
 		<g:select class="countrySelector" name="${prefix}.country"  id="${prefix}Country" value="${addressInstance?.country}"
-		    noSelection="${['null':'-- filter by country --']}"
+		    noSelection="${['null':'-- select country --']}"
 		    from='${countryList}' optionKey="code" optionValue="sname" ></g:select>
 	</g:if>
 	<g:else>
