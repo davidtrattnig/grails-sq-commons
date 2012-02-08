@@ -55,4 +55,17 @@ class StringUtil {
 
 		return nums
 	}
+	
+	/**
+	 * If the string is greater than {@code maxSize} it is cut
+	 * At teh end the string "..." is appended.
+	 */
+	public static String continued(String s, Integer maxSize) {
+		
+		if (s.size() >= maxSize) {
+			s = s.substring(0, maxSize-1)
+			s += " ..."
+		}
+		return s
+	}
 }
