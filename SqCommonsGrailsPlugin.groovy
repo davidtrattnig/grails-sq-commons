@@ -14,10 +14,10 @@ class SqCommonsGrailsPlugin {
 	
     // TODO Fill in these fields
     def title = "Sq Commons Plugin" // Headline display name of the plugin
-    def author = "Your name"
+    def author = "David Trattnig"
     def authorEmail = ""
     def description = '''\
-Brief summary/description of the plugin.
+Commons classes and resources used by subsquare projects.
 '''
 
     // URL to the plugin's documentation
@@ -29,7 +29,7 @@ Brief summary/description of the plugin.
 //    def license = "APACHE"
 
     // Details of company behind the plugin (if there is one)
-//    def organization = [ name: "My Company", url: "http://www.my-company.com/" ]
+    def organization = [ name: "subsquare", url: "http://www.subsquare.at/" ]
 
     // Any additional developers beyond the author specified above.
 //    def developers = [ [ name: "Joe Bloggs", email: "joe@bloggs.net" ]]
