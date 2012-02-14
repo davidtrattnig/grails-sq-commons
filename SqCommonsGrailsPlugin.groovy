@@ -10,7 +10,7 @@ class SqCommonsGrailsPlugin {
         "grails-app/views/error.gsp"
     ]
 
-	def packaging = "binary"
+	/*def packaging = "binary"*/
 	
     // TODO Fill in these fields
     def title = "Sq Commons Plugin" // Headline display name of the plugin
