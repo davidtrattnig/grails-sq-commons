@@ -22,8 +22,8 @@ class GeoCoderServiceTests {
 		def res = service.findLocation("st. peter 16, radenthein")
 		println "geoCode response: $res"
 		assert res
-		assert res.longitude ==  "13.728496" 
-		assert res.latitude == "46.797153"
+		assert res.longitude.getAt(0..5) ==  "13.728" 
+		assert res.latitude.getAt(0..5) == "46.797"
 		assert res.address
     }
 }
