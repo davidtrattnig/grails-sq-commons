@@ -1,6 +1,14 @@
 package at.subsquare.commons
 
 
+/**
+ * ConfigProperty
+ * <p>
+ * Provides storage of key/value pairs in the database
+ * 
+ * @author david.trattnig
+ * @since 0.1
+ */
 class ConfigProperty {
 
 	String name

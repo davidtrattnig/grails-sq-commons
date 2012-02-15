@@ -5,9 +5,9 @@ import groovy.json.JsonSlurper
 
 /**
  * GeoCoderService
- * <p>
+ * <p/>
  * Service to query latitude/longitude data for an given address.
- *
+ * <p/>
  * For more interface details refer to
  * {@url http://code.google.com/apis/maps/documentation/geocoding/}
  *
@@ -16,19 +16,19 @@ import groovy.json.JsonSlurper
  */
 class GeoCoderService {
 
-
+	//TODO provide way using alternative service such as geonames:
 	//def serviceUrl = "http://ws.geonames.org/search?name_equals=${query}&style=full"
 	def serviceUrl = { query ->
-		def u = "http://maps.google.com/maps/api/geocode/json?address=${query}&sensor=false"
-		println u
-		u
+		def url = "http://maps.google.com/maps/api/geocode/json?address=${query}&sensor=false"
+		log.debug "REQUEST: $url"
+		url
 	}
 	
 	/**
 	 * Retrieves latitude/longitude for the given address.
 	 *
 	 * @param address address delimited by commas
-	 * @return map holding with following elements:
+	 * @return map holding following elements:
 	 * <ul>
      *   <li>address ... formatted address from GeoCoder service</li>
      *   <li>longitude</li>

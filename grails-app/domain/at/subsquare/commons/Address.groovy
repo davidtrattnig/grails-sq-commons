@@ -1,5 +1,14 @@
 package at.subsquare.commons
 
+/**
+ * Address
+ * <p/>
+ * Representation of an address with loose constraints
+ * for easy reuse.
+ *
+ * @author david.trattnig
+ * @since 0.1
+ */
 class Address {
 
 	String street

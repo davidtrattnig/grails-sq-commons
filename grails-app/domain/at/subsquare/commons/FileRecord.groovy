@@ -3,7 +3,7 @@ package at.subsquare.commons
 /**
  * FileRecord
  * <p>
- * Enables storage of files in the database.
+ * Provides storage of files in the database.
  * 
  * @author david.trattnig
  * @since 0.1
@@ -11,7 +11,6 @@ package at.subsquare.commons
 class FileRecord {
 
 	static mapping = {
-	    //content type: "blob" // or "binary"?
 		content column: "content", sqlType: "mediumblob"
 	}
 	
