@@ -11,6 +11,14 @@ package at.subsquare.commons
 public class RandomUtil {
 	
 	/**
+	 * Genrates a random integer number with {@code max} as upper boundary.
+	 */
+	public static int randomInt(int max) {
+		Random rand = new Random(System.currentTimeMillis())
+		rand.nextInt(max)
+	}
+	
+	/**
 	 * Generates an universal unique id.
 	 */
 	public static String generateUUID() {

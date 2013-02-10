@@ -15,12 +15,14 @@ class Address {
 	String street
 	String zipCode
 	String city
+	String province
 	String country
 	
     static constraints = {
 		street nullable: true
 		zipCode nullable: true, size: 1..15
 		city nullable: true
+		province nullable: true
 		country blank: false
     }
 	
@@ -29,9 +31,10 @@ class Address {
 	 */
 	public String toString() {
 		
-		def address = street.trim() ? "$street, " : ""
+		def address = street?.trim() ? "$street, " : ""
 		address += zipCode ? "$zipCode " : ""
 		address += city ? " $city, " : ""
+		address += province ? " $province, " : ""
 		address += country
 	}
 }

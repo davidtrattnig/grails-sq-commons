@@ -14,6 +14,7 @@ class FileRecord {
 		content column: "content", sqlType: "mediumblob"
 	}
 	
+	String ns
 	String name
 	byte[] content
 	String contentType 
@@ -22,6 +23,7 @@ class FileRecord {
 	Date lastUpdated
 	
     static constraints = {
+		ns nullable:true
 		name nullable:true
 		contentType nullable:true
 		content maxSize: 5000000 //5MB
@@ -29,7 +31,7 @@ class FileRecord {
 
 	public Reader reader() {
 		def reader = null
-		println "content >> "+content
+		
 		if (content) {
 			def bais = new ByteArrayInputStream(content)
 			bais.reset()

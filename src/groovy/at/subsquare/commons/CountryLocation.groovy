@@ -3,7 +3,7 @@ package at.subsquare.commons
 /**
  * CountryLocation
  *
- * Class to query properties regaring Countries
+ * Class to query properties regarding Countries
  * such as
  * 
  * <li>code ISO code
@@ -19,6 +19,7 @@ package at.subsquare.commons
 class CountryLocation {
 
 	static def EUROPE = [latitude: 9.14055555556, longitude: 48.6908333333]
+	
 	
 	static def countries = [
 		alb: [ offical: true,	sname:'Albania', 			latitude:'20.0', 	longitude:'41.0'	],
@@ -37,7 +38,26 @@ class CountryLocation {
 		fin: [ offical: true,	sname:'Finland', 			latitude:'26.0',	longitude:'64.0'	],
 		fra: [ offical: true,	sname:'France', 			latitude:'2.0',  	longitude:'46.0'	],
 		geo: [ offical: true,	sname:'Georgia',		 	latitude:'43.5',	longitude:'42.0'	],
-		deu: [ offical: true,	sname:'Germany',			latitude:'9.0', 	longitude:'51.0'	],
+		deu: [ offical: true,	sname:'Germany',			latitude:'9.0', 	longitude:'51.0',	
+	    	states: [ 			
+	    		'de1': [ sname:'Baden-Württemberg',         latitude:'9.349365',      longitude:'48.661943',    zoom:'7'],
+	    		'de2': [ sname:'Bayern',                    latitude:'11.502686',     longitude:'48.79239',    zoom:'7'],
+	    		'de3': [ sname:'Berlin',                    latitude:'13.406067',      longitude:'52.519146',        zoom:'10'],
+	    		'de4': [ sname:'Brandenburg',               latitude:'13.436279',     longitude:'52.395715',    zoom:'7'],
+	    		'de5': [ sname:'Bremen',                    latitude:'13.436279',     longitude:'52.48278',    zoom:'11'],
+	    		'de6': [ sname:'Hamburg',                   latitude:'9.993439',      longitude:'53.550915',    zoom:'10'],
+	    		'de7': [ sname:'Hessen',                    latitude:'9.162438',      longitude:'50.652052',    zoom:'7'],
+	    		'de8': [ sname:'Mecklenburg-Vorpommern',    latitude:'12.425537',     longitude:'53.612062',        zoom:'7'],
+	    		'de9': [ sname:'Niedersachsen',             latitude:'9.84375',       longitude:'52.636397',    zoom:'7'],
+	    		'dea': [ sname:'Nordrhein-Westfalen',       latitude:'7.657471',      longitude:'51.433464',        zoom:'7'],
+	    		'deb': [ sname:'Rheinland-Pfalz',           latitude:'7.305908',      longitude:'50.120578',    zoom:'8'],
+	    		'dec': [ sname:'Saarland',                  latitude:'7.305908',      longitude:'50.120578',    zoom:'9'],
+	    		'ded': [ sname:'Sachsen',                   latitude:'7.022961',      longitude:'49.396423',    zoom:'8'],
+	    		'dee': [ sname:'Sachsen-Anhalt',            latitude:'13.201738',     longitude:'51.104541',    zoom:'7'],
+	    		'def': [ sname:'Schleswig-Holstein',        latitude:'11.692273',     longitude:'51.950265',    zoom:'8'],
+	    		'deg': [ sname:'Thüringen',                 latitude:'9.696117',      longitude:'54.219367',        zoom:'8']
+	    		]
+			],
 		grc: [ offical: true,	sname:'Greece',  			latitude:'22.0', 	longitude:'39.0'	],
 		hun: [ offical: true,	sname:'Hungary', 			latitude:'20.0',	longitude:'47.0'	],
 		isl: [ offical: true,	sname:'Iceland', 			latitude:'-18.0', 	longitude:'65.0'	],
@@ -82,7 +102,7 @@ class CountryLocation {
 		
 	public static Object byCode(String code, String col=null) {
 		def res = null
-		
+
 		if (col)
 			res = countries.get(code)."$col"
 		else
@@ -114,6 +134,19 @@ class CountryLocation {
 		return res
 	}
 	
-
+			
+	public static List<List> listStates(String code) {
+		
+		def res = []
+			
+		countries."$code".states.each { key, value -> 	
+			
+			assert value instanceof Map
+			value.put("code",(key))	
+			res.add(value)
+		}
+			
+		return res
+	}
 }
 

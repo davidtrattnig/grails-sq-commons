@@ -19,7 +19,7 @@ class GeoCoderServiceTests {
     void testFindLocation() {
 
 		def service = new GeoCoderService()
-		def res = service.findLocation("st. peter 16, radenthein")
+		def res = service.findLocation("kärtnerstrasse 3, wien")
 		println "geoCode response: $res"
 		assert res
 		assert res.longitude.getAt(0..5) ==  "13.728" 
