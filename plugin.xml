@@ -1,6 +1,7 @@
-<plugin name='sq-commons' version='0.3-SNAPSHOT' grailsVersion='2.0.1 &gt; *'>
+<plugin name='sq-commons' version='0.3.3-SNAPSHOT' grailsVersion='2.2.0 &gt; *'>
   <author>David Trattnig</author>
-  <title>Sq Commons Plugin</title>
+  <authorEmail>david.trattnig@gmail.com</authorEmail>
+  <title>SQ Commons Plugin</title>
   <description>Commons classes and resources used by subsquare projects.
 </description>
   <documentation>http://grails.org/plugin/sq-commons</documentation>
@@ -14,39 +15,39 @@
     <resource>at.subsquare.commons.MapsTagLib</resource>
   </resources>
   <repositories>
-    <repository name='grailsCentral' url='http://plugins.grails.org' />
-    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
-    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
-    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
     <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+    <repository name='https://repo.springsource.org/repo' url='https://repo.springsource.org/repo/' />
     <repository name='http://repo1.maven.org/maven2/' url='http://repo1.maven.org/maven2/' />
     <repository name='http://download.java.net/maven/2/' url='http://download.java.net/maven/2/' />
+    <repository name='http://maven.springframework.org/milestone' url='http://maven.springframework.org/milestone/' />
   </repositories>
   <dependencies>
     <runtime>
-      <dependency group='org.ccil.cowan.tagsoup' name='tagsoup' version='1.2' />
       <dependency group='com.google.guava' name='guava' version='11.0.1' />
       <dependency group='mysql' name='mysql-connector-java' version='5.1.18' />
+      <dependency group='org.ccil.cowan.tagsoup' name='tagsoup' version='1.2' />
     </runtime>
   </dependencies>
   <plugins>
     <compile>
-      <plugin group='org.grails.plugins' name='google-visualization' version='0.2.1' />
+      <plugin group='org.grails.plugins' name='cache' version='1.0.1' />
+      <plugin group='org.grails.plugins' name='csv' version='0.3.1' />
+      <plugin group='org.grails.plugins' name='cloud-foundry' version='1.2.3' />
+      <plugin group='org.grails.plugins' name='google-visualization' version='0.6.1' />
     </compile>
     <runtime>
-      <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.4' />
-      <plugin group='org.grails.plugins' name='hibernate' version='2.0.1' />
-      <plugin group='org.grails.plugins' name='jquery' version='1.7.1' />
-      <plugin group='org.grails.plugins' name='cloud-foundry' version='1.2.1' />
-      <plugin group='org.grails.plugins' name='jquery-ui' version='1.8.15' />
       <plugin group='org.grails.plugins' name='database-migration' version='1.0' />
-      <plugin group='org.grails.plugins' name='resources' version='1.1.6' />
-      <plugin group='org.grails.plugins' name='cloud-foundry-ui' version='1.1' />
+      <plugin group='org.grails.plugins' name='hibernate' version='2.2.0' />
+      <plugin group='org.grails.plugins' name='jquery' version='1.7.1' />
       <plugin group='org.grails.plugins' name='mail' version='1.0' />
-      <plugin group='org.grails.plugins' name='csv' version='0.3.1' />
+      <plugin group='org.grails.plugins' name='resources' version='1.1.6' />
+      <plugin group='org.grails.plugins' name='spring-security-core' version='1.2.4' />
+      <plugin group='org.grails.plugins' name='cloud-foundry-ui' version='1.1' />
+      <plugin group='org.grails.plugins' name='jquery-ui' version='1.8.15' />
     </runtime>
     <build>
-      <plugin group='org.grails.plugins' name='tomcat' version='2.0.1' />
+      <plugin group='org.grails.plugins' name='tomcat' version='2.2.0' />
     </build>
   </plugins>
   <runtimePluginRequirements />
