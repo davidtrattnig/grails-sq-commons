@@ -1,6 +1,6 @@
 class SqCommonsGrailsPlugin {
     // the plugin version
-    def version = "0.3.1-SNAPSHOT"
+    def version = "0.3.3-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
@@ -13,9 +13,9 @@ class SqCommonsGrailsPlugin {
 	/*def packaging = "binary"*/
 	
     // TODO Fill in these fields
-    def title = "Sq Commons Plugin" // Headline display name of the plugin
+    def title = "SQ Commons Plugin" // Headline display name of the plugin
     def author = "David Trattnig"
-    def authorEmail = ""
+    def authorEmail = "david.trattnig@gmail.com"
     def description = '''\
 Commons classes and resources used by subsquare projects.
 '''
