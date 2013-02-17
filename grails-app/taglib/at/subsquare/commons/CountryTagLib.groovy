@@ -23,8 +23,18 @@ class CountryTagLib {
 		def name = attrs.remove("name")
 		def value = attrs.remove("value")
 		def noSelection = attrs.remove("noSelection")
-		def from = CountryLocation.list()
-
+		def states = attrs.remove("states")
+		def from = null
+		
+		log.info "filter countrylist:states > $states"
+		
+		if (states) {
+			from = CountryLocation.listStates(states)
+			log.info "states > $states"
+		} else {
+			from = CountryLocation.list()
+		}
+		
 		out << g.select(name: name, value: value, noSelection: noSelection, from: from, optionKey:"code", optionValue:"sname")		
 	}
 

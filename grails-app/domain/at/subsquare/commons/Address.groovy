@@ -34,8 +34,8 @@ class Address {
 		
 		def address = street?.trim() ? "$street, " : ""
 		address += zipCode ? "$zipCode " : ""
-		address += city ? " $city, " : ""
-		address += province ? " $province, " : ""
-		address += country
+		address += city ? " $city<br/> " : ""
+		address += province ? province  : ""
+		address += country ? ", country" : ""
 	}
 }
