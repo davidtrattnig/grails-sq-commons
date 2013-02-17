@@ -33,6 +33,7 @@ class GeoCoderService {
      *   <li>address ... formatted address from GeoCoder service</li>
      *   <li>longitude</li>
      *   <li>latitude</li>
+	 *	 <li>countryCode ... ISO 3166-1 alpha-2 country code</li>
      * </ul>
 	 */
     public Map findLocation(String address, encode=true) {
@@ -44,9 +45,17 @@ class GeoCoderService {
 		def jsonParser = new JsonSlurper().parseText(data)
 
 		if (data && jsonParser?.results) {
-			result.address = jsonParser.results."formatted_address".first().toString()
-			result.latitude = jsonParser.results.geometry.location.lat.first().toString()
-			result.longitude = jsonParser.results.geometry.location.lng.first().toString()
+
+			result.countryCode = 
+			result.address = jsonParser.results[0]."formatted_address".toString()
+			result.latitude = jsonParser.results[0].geometry.location.lat.toString()
+			result.longitude = jsonParser.results[0].geometry.location.lng.toString()
+			result.countryCode=""
+			jsonParser.results[0]."address_components".each {
+				if (it.types.contains("country")) {
+					result.countryCode = it."short_name"
+				}
+			}
 		} else {
 			log.error "no response from ${requestUrl}"
 			result = null

@@ -22,8 +22,19 @@ class GeoCoderServiceTests {
 		def res = service.findLocation("kärtnerstrasse 3, wien")
 		println "geoCode response: $res"
 		assert res
-		assert res.longitude.getAt(0..5) ==  "13.728" 
-		assert res.latitude.getAt(0..5) == "46.797"
+		assert res.longitude.getAt(0..5) ==  "16.371" 
+		assert res.latitude.getAt(0..5) == "48.207"
 		assert res.address
     }
+	
+	void testFindCountryCode() {
+	
+		def service = new GeoCoderService()
+		def res = service.findLocation("opernring 3, wien")
+		println "GEOCODE response: $res"
+		assert res
+		assert res.address
+		assert res.countryCode == "AT"
+	//CountryNameCode
+	}
 }

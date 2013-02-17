@@ -10,4 +10,5 @@ class MapsTagLib {
 		out << 'src="http://maps.googleapis.com/maps/api/js?key='+API_KEY+'&sensor=true">'
 		out << '</script>'
 	}
+	
 }

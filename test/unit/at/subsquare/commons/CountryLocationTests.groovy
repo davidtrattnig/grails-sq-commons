@@ -30,6 +30,7 @@ class CountryLocationTests {
 		def countries = CountryLocation.list()
 		assert countries
 		assert countries instanceof List
+		assert countries.size() == 54
 	}
 		
 	void testListCountriesForCodes() {
