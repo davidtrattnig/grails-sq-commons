@@ -36,6 +36,6 @@ class Address {
 		address += zipCode ? "$zipCode " : ""
 		address += city ? " $city<br/> " : ""
 		address += province ? province  : ""
-		address += country ? ", country" : ""
+		address += country ? ", $country" : ""
 	}
 }
