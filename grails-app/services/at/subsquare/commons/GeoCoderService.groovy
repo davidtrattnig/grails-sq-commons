@@ -16,6 +16,8 @@ import groovy.json.JsonSlurper
  */
 class GeoCoderService {
 
+	private locationCache = [ : ]
+	
 	//TODO provide way using alternative service such as geonames:
 	//def serviceUrl = "http://ws.geonames.org/search?name_equals=${query}&style=full"
 	def serviceUrl = { query ->
@@ -36,31 +38,50 @@ class GeoCoderService {
 	 *	 <li>countryCode ... ISO 3166-1 alpha-2 country code</li>
      * </ul>
 	 */
-    public Map findLocation(String address, encode=true) {
+    public Map findLocation(String address, encode=false) {
 	
 		def result = [ : ]
-		address = encode ? address.encodeAsURL() : address
-		def requestUrl = serviceUrl(address)
-		def data = new URL(requestUrl).text
-		def jsonParser = new JsonSlurper().parseText(data)
-
-		if (data && jsonParser?.results) {
-
-			result.countryCode = 
-			result.address = jsonParser.results[0]."formatted_address".toString()
-			result.latitude = jsonParser.results[0].geometry.location.lat.toString()
-			result.longitude = jsonParser.results[0].geometry.location.lng.toString()
-			result.countryCode=""
-			jsonParser.results[0]."address_components".each {
-				if (it.types.contains("country")) {
-					result.countryCode = it."short_name"
-				}
-			}
-		} else {
-			log.error "no response from ${requestUrl}"
-			result = null
-		}
+		address = encode ? address.trim().encodeAsURL() : address.trim().replaceAll(" ", "+")
 		
+		//try to used cached location
+		if (locationCache.get(address)) {
+			result = locationCache.get(address)
+			log.debug "Found cached location $result"
+		} else {
+		
+			def requestUrl = serviceUrl(address)
+			def data = new URL(requestUrl).text
+			def jsonParser = new JsonSlurper().parseText(data)
+			
+			if (data && jsonParser) {
+				if (jsonParser.results) {
+					result.countryCode = 
+					result.address = jsonParser.results[0]."formatted_address".toString()
+					result.latitude = jsonParser.results[0].geometry.location.lat.toString()
+					result.longitude = jsonParser.results[0].geometry.location.lng.toString()
+					result.countryCode=""
+					jsonParser.results[0]."address_components".each {
+						if (it.types.contains("country")) {
+							result.countryCode = it."short_name"
+						}
+					}
+					locationCache.put(address, result)
+				} else {
+					if (jsonParser.status == "OVER_QUERY_LIMIT") {
+						sleep(2000)
+						result = findLocation(address, encode)
+						if ( !result) {
+							log.error("Daily query limit exceeded!")
+						} else {
+							log.debug("Found result after waiting 2 seconds...")
+						}
+					}
+					log.error "invalid response '${jsonParser.status}' from ${requestUrl}"
+				}
+			} else {
+				log.error "no response from ${requestUrl}"
+			}
+		}
 		return result
     }
 }
