@@ -1,10 +1,10 @@
 class SqCommonsGrailsPlugin {
     // the plugin version
-    def version = "0.3.6-SNAPSHOT"
+    def version = "0.3.7"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
-    def dependsOn = ["mail":"1.0"]
+    def dependsOn = ["mail":"1.0 > *"]
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
         "grails-app/views/error.gsp"
@@ -22,7 +22,7 @@ Commons classes and resources used by subsquare projects.
 
     // URL to the plugin's documentation
     def documentation = "http://grails.org/plugin/sq-commons"
-
+	
     // Extra (optional) plugin metadata
 
     // License: one of 'APACHE', 'GPL2', 'GPL3'

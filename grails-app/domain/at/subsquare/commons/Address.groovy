@@ -11,6 +11,7 @@ package at.subsquare.commons
  */
 class Address {
 
+	String note
 	String street
 	String zipCode
 	String city
@@ -19,6 +20,7 @@ class Address {
 	String countryCode //ISO 3166-1 alpha-2 code
 	
     static constraints = {
+		note nullable: true
 		street nullable: true
 		zipCode nullable: true, size: 1..15
 		city nullable: true
@@ -32,7 +34,8 @@ class Address {
 	 */
 	public String toString() {
 		
-		def address = street?.trim() ? "$street, " : ""
+		def address = street?.trim() ? "$note, " : ""
+		address = street?.trim() ? "$street, " : ""
 		address += zipCode ? "$zipCode " : ""
 		address += city ? " $city, " : ""
 		address += province ? province  : ""
