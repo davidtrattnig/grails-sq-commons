@@ -13,14 +13,22 @@ class CountryLocationTests {
 
 	void testCountryByCode() {
 
-		def country = CountryLocation.byCode("aut")
+		def country = CountryLocation.byCode("at")
 		assert country
 		assert country.sname == "Austria"
+	}
+	
+	void testCountryStateByCode() {
+	
+		def state = CountryLocation.byCode("de").states."de5"
+		assert state.sname == "Bremen"
+		assert state.latitude == "8.801422"
+		assert state.longitude == "53.079178" 
 	}
 
 	void testCountryByCodeAndColumn() {
 
-		def country = CountryLocation.byCode("aut", "sname")
+		def country = CountryLocation.byCode("at", "sname")
 		assert country
 		assert country == "Austria"
 	}	
@@ -35,13 +43,14 @@ class CountryLocationTests {
 		
 	void testListCountriesForCodes() {
 
-		def countries = CountryLocation.list(["alb", "aut", "xxx", "svn"])
+		def countries = CountryLocation.list(["al", "at", "xxx", "si"])
 		assert countries
 		assert countries instanceof List
 		assert countries.size() == 3
 		println "country0 = "+countries[0]
 		assert countries[0].sname == "Albania"
 		assert countries[2].sname == "Slovenia"
-		assert countries[0].code == "alb"
+		assert countries[0].code == "al"
 	}
+	
 }
