@@ -46,16 +46,16 @@ class CountryLocation {
 	    		'de4': [ sname:'Brandenburg',               latitude:'13.436279',     longitude:'52.395715',   zoom:'7'],
 	    		'de5': [ sname:'Bremen',                    latitude:'8.801422',      longitude:'53.079178',   zoom:'11'],
 	    		'de6': [ sname:'Hamburg',                   latitude:'9.993439',      longitude:'53.550915',   zoom:'10'],
-	    		'de7': [ sname:'Hessen',                    latitude:'8.801694',      longitude:'53.079296',   zoom:'7'],
-	    		'de8': [ sname:'Mecklenburg-Vorpommern',    latitude:'12.425537',     longitude:'53.612062',   zoom:'7'],
+	    		'de7': [ sname:'Hessen',                    latitude:'9.000000',      longitude:'50.652943',   zoom:'7'],
+	    		'de8': [ sname:'Mecklenburg-Vorpommern',    latitude:'12.425537',     longitude:'53.612062',   zoom:'8'],
 	    		'de9': [ sname:'Niedersachsen',             latitude:'9.84375',       longitude:'52.100000',   zoom:'7'],
 	    		'dea': [ sname:'Nordrhein-Westfalen',       latitude:'7.657471',      longitude:'51.100000',   zoom:'7'],
 	    		'deb': [ sname:'Rheinland-Pfalz',           latitude:'7.305908',      longitude:'49.500000',   zoom:'7'],
-	    		'dec': [ sname:'Saarland',                  latitude:'9.84375',       longitude:'52.636397',   zoom:'9'],
-	    		'ded': [ sname:'Sachsen',                   latitude:'11.656494',     longitude:'49.660517',   zoom:'8'],
+	    		'dec': [ sname:'Saarland',                  latitude:'6.748352',      longitude:'49.3931',     zoom:'9'],
+	    		'ded': [ sname:'Sachsen',                   latitude:'13.743896',     longitude:'51.048301',   zoom:'8'],
 	    		'dee': [ sname:'Sachsen-Anhalt',            latitude:'13.201738',     longitude:'51.104541',   zoom:'7'],
-	    		'def': [ sname:'Schleswig-Holstein',        latitude:'9.696117',      longitude:'54.219367',   zoom:'8'],
-	    		'deg': [ sname:'Thüringen',                 latitude:'9.696117',      longitude:'53.50000',    zoom:'8']
+	    		'def': [ sname:'Schleswig-Holstein',        latitude:'9.696117',      longitude:'53.919367',   zoom:'8'],
+	    		'deg': [ sname:'Thüringen',                 latitude:'12.212305',     longitude:'50.464498',   zoom:'8']
 	    		]
 			],
 		gr: [ offical: true,	sname:'Greece',  			latitude:'22.0', 	longitude:'39.0'	],
