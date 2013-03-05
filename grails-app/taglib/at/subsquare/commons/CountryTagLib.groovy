@@ -25,12 +25,9 @@ class CountryTagLib {
 		def noSelection = attrs.remove("noSelection")
 		def states = attrs.remove("states")
 		def from = null
-		
-		log.info "filter countrylist:states > $states"
-		
+
 		if (states) {
 			from = CountryLocation.listStates(states)
-			log.info "states > $states"
 		} else {
 			from = CountryLocation.list()
 		}

@@ -41,4 +41,11 @@ class Address {
 		address += province ? province  : ""
 		address += country ? " $country" : ""
 	}
+	
+	public int compareTo(Address o) {
+		
+		def same = note+street+zipCode+city+province+country+countryCode
+		def other = o.note+o.street+o.zipCode+o.city+o.province+o.country+o.countryCode
+    	same.compareTo(other)
+	}
 }
