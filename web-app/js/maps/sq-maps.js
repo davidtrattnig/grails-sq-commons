@@ -1,28 +1,32 @@
 /** global vars **/
 var g_currentInfoWin = null;
 
-/** initializes the "map_canvas" **/
-function initMap(center, zoom) {
-	
-  	var myOptions = {
-		backgroundColor: '#ccc',
-    	zoom: zoom,
-    	center: center,
-    	// mapTypeId: google.maps.MapTypeId.ROADMAP
-		mapTypeId: google.maps.MapTypeId.TERRAIN
-	};
-	
-	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	return map;
-}
-
 /** places the default marker **/
 function placeMarker(map, location, isDraggable, callback) {
 
-	var m = new google.maps.Marker({
+	 var m = new google.maps.Marker({
       		position: location, 
       		map: map,
-			draggable: isDraggable
+		draggable: isDraggable
+	});	
+	
+	if (callback) {
+		google.maps.event.addListener(m, 'click', callback);
+	}
+	return m;			
+}
+
+/** places a custom marker with provided image, shadow & shape **/
+function placeMarker(map, location, isDraggable, callback, image, shadow, shape) {
+	
+
+	var m = new google.maps.Marker({
+	      		position: location, 
+	      		map: map,
+			draggable: isDraggable,
+		    icon: image,
+		    shadow: shadow,
+		    shape: shape
 		});	
 		
 	if (callback) {
@@ -32,17 +36,18 @@ function placeMarker(map, location, isDraggable, callback) {
 }
 
 /** places a custom marker with provided image, shadow & shape **/
-function placeMarker(map, location, isDraggable, callback, image, shadow, shape) {
-
-	var m = new google.maps.Marker({
-      		position: location, 
-      		map: map,
-			draggable: isDraggable,
-		    icon: image,
-		    shadow: shadow,
-		    shape: shape
+function placeMarkerWithLabel(map, location, isDraggable, callback, label) {
+	
+	var m = new MarkerWithLabel({
+	      		position: location, 
+	      		map: map,
+				draggable: isDraggable,
+		    	labelContent: label,
+		    	labelAnchor: new google.maps.Point(3, 30),
+		    	labelClass: "map-label", //css class
+		    	labelInBackground: false
 		});	
-		
+	
 	if (callback) {
 		google.maps.event.addListener(m, 'click', callback);
 	}
