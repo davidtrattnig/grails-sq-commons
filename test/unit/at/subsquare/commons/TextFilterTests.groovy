@@ -47,6 +47,23 @@ class TextFilterTests {
 		assert res == 'hello world <br/><a href="mailto:foo@bar.com">foo@bar.com</a> email'
 	}
 
+	void testFilterDashedEmail() {
+	
+		def s = "hello world foo@bar-bar.com email"
+		def res = TextFilter.filterEmail(s)
+		println res
+		assert res
+		assert res == 'hello world <a href="mailto:foo@bar-bar.com">foo@bar-bar.com</a> email'		
+	}
+	
+	void testFilterVariousEmails() {
+	
+		def s = "aaa.bb-cc@bar-bar.com"
+		def res = TextFilter.filterEmail(s)
+		println res
+		assert res
+		assert res == '<a href="mailto:aaa.bb-cc@bar-bar.com">aaa.bb-cc@bar-bar.com</a>'		
+	}
 	
 	void testFilterCR() {
 	

@@ -48,7 +48,7 @@ import java.util.regex.*;
 	 public static String filterEmail(String text) {
 	 	
 		 if (text) {
-			 def emails = text =~ "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})"
+			 def emails = text =~ "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9\\-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})"
 			 emails.each { email ->
 				 if ( !text.contains("mailto:${email[0]}")) {
 					 text = text.replace(email[0], "<a href=\"mailto:${email[0]}\">${email[0]}</a>")
