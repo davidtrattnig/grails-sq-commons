@@ -43,8 +43,8 @@ function placeMarkerWithLabel(map, location, isDraggable, callback, label) {
 	      		map: map,
 				draggable: isDraggable,
 		    	labelContent: label,
-		    	labelAnchor: new google.maps.Point(3, 30),
-		    	labelClass: "map-label", //css class
+		    	labelAnchor: new google.maps.Point(-30, -30),
+		    	labelClass: "map-label", 
 		    	labelInBackground: false
 		});	
 	
@@ -52,16 +52,6 @@ function placeMarkerWithLabel(map, location, isDraggable, callback, label) {
 		google.maps.event.addListener(m, 'click', callback);
 	}
 	return m;			
-}
-
-/** returns an infowindow closure - will open on call **/
-function infoWinCallback(infoWin, marker) { 
-	return function() { 
-		if (g_currentInfoWin != null)
-			g_currentInfoWin.close();
-		infoWin.open(g_map, marker); 
-		g_currentInfoWin = infoWin;
-	}; 
 }
 
 /** geocodes a given address **/

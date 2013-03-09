@@ -1,5 +1,5 @@
-package at.subsquare.commons
 
+package at.subsquare.commons
 
 /**
  * ConfigProperty
@@ -11,21 +11,25 @@ package at.subsquare.commons
  */
 class ConfigProperty {
 
+	String ns
 	String name
 	String value
+	String role
 	
 	Date dateCreated
 	Date lastUpdated
 	
     static constraints = {
+		ns nullable: true
 		name unique: true, blank: false
 		value nullable: true
+		role nullable: true
     }
 
 	/**
 	 * Default toString method
 	 */
 	public String toString() {
-		"<${name}>:<${value}>"
+		"${ns}:${name}:${value} (role: $role)"
 	}
 }

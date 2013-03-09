@@ -26,6 +26,30 @@ class GeoCoderService {
 		url
 	}
 	
+	
+	/**
+	 * Calculates the distances between two points in km using the Haversine formula (rounded).
+	 *
+	 * @param posLat
+	 * @param posLng
+	 * @param otherLat
+	 * @param otherLng
+	 * @return map holding following elements:
+	 */
+	public Integer calculateDistance(double posLat, double posLng, double otherLat, double otherLng) {
+
+		def final AVG_EARTH_RADIUS = 6378.145
+	    def latDistance = Math.toRadians(posLat - otherLat)
+	    def lngDistance = Math.toRadians(posLng - otherLng)
+
+	    def a = (Math.sin(latDistance / 2) * Math.sin(latDistance / 2)) +
+	                Math.cos( Math.toRadians(posLat)) * Math.cos( Math.toRadians(otherLat)) *
+	                Math.sin(lngDistance / 2) * Math.sin(lngDistance / 2)
+					
+	    def c = 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1 - a))
+	    return (Integer) (Math.round( c * AVG_EARTH_RADIUS))
+	}
+	
 	/**
 	 * Retrieves latitude/longitude for the given address.
 	 *
