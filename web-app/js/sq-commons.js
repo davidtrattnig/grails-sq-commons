@@ -1,6 +1,16 @@
 // file: sq-commons.js
 function SQ() {}
 
+SQ.prototype.getParameters = function() {
+	
+	var params = {}, e;
+	var regex = /([^&=]+)=([^&]*)/g;
+	var queryString = location.search.substring(1);
+	while (e = regex.exec(queryString)) {
+	    params[decodeURIComponent(e[1])] = decodeURIComponent(e[2]);
+	}	
+}
+
 SQ.prototype.updateParameters = function(callback) {
 	
 	var params = {}, e;
