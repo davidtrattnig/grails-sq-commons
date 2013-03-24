@@ -11,7 +11,7 @@ package at.subsquare.commons
 public class RandomUtil {
 	
 	/**
-	 * Genrates a random integer number with {@code max} as upper boundary.
+	 * Generates a random integer number with {@code max} as upper boundary.
 	 */
 	public static int randomInt(int max) {
 		Random rand = new Random(System.currentTimeMillis())
