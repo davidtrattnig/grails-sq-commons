@@ -24,6 +24,24 @@ class ConfigPropertyTests {
 		cp.validate()
 		println cp.errors
 		assert cp.save(flush:true)
-		assert cp.toString() == "<aa>:<123>"
+		assert cp.toString() == "aa:123"
+    }
+	
+    void testNamespacedConfigPropertyToString() {
+		
+		def cp = new ConfigProperty(ns:"funnyNamespace", name:"aa", value:"123")
+		cp.validate()
+		println cp.errors
+		assert cp.save(flush:true)
+		assert cp.toString() == "funnyNamespace:aa:123"
+    }
+	
+    void testWithRole() {
+		
+		def cp = new ConfigProperty(role:"ROLE_ADMIN", ns:"funnyNamespace", name:"aa", value:"123")
+		cp.validate()
+		println cp.errors
+		assert cp.save(flush:true)
+		assert cp.toString() == "ROLE_ADMIN@funnyNamespace:aa:123"
     }
 }

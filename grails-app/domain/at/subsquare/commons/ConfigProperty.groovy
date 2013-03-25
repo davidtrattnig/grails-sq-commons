@@ -30,6 +30,7 @@ class ConfigProperty {
 	 * Default toString method
 	 */
 	public String toString() {
-		"${ns}:${name}:${value} (role: $role)"
+		def prefix = role ? "${role}@" : ""
+		"${prefix}${ns ? ns+":" : ""}${name}:${value}"
 	}
 }

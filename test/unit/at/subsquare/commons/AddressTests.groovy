@@ -30,12 +30,4 @@ class AddressTests {
 		assert a.save()
     }
 
-    void testCreateInvalidAddress() {
-
-		def a = new Address()
-		a.street = "street 1"
-		a.zipCode = "123"
-		a.city = "city"
-		assert null == a.save()
-    }
 }
