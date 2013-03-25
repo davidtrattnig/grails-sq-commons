@@ -1,10 +1,10 @@
 class SqCommonsGrailsPlugin {
     // the plugin version
-    def version = "0.3.8"
+    def version = "0.4.0"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
     // the other plugins this plugin depends on
-    def dependsOn = ["mail":"1.0 > *"]
+    def dependsOn = [/*"mail":"1.0.1 > *"*/ : ]
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
         "grails-app/views/error.gsp"

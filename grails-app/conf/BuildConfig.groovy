@@ -34,9 +34,14 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
+		runtime ":jquery:1.8.3"
+				
         build(":tomcat:$grailsVersion",
               ":release:1.0.0") {
             export = false
         }
+		
+		compile ":mail:1.0.1"
+		compile ":jquery-ui:1.8.24"
     }
 }
