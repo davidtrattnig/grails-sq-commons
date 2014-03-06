@@ -60,7 +60,7 @@ import java.util.regex.*;
 	 
 	 public static String filterCR(String text) {
 	 
-	 	text.replaceAll("\r\n|\n\r|\n|\r","<br/>")
+	 	text?.replaceAll("\r\n|\n\r|\n|\r","<br/>")
 	 }
 	 
  }
